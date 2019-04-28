@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>demo</title>
+  <!--core-->
+  <script src="src/lib/vue.min.js"></script>
+  <script src="src/lib/bin-ui/bin-ui.umd.min.js"></script>
+  <link rel="stylesheet" href="src/lib/bin-ui/styles/index.css">
+  <!--self-->
+  <link rel="stylesheet" href="src/styles/index.css">
+  <script src="src/components/dot-label.js"></script>
+  <!--测试模拟请求-->
+  <script src="src/lib/axios.min.js"></script>
+  <script src="src/lib/mock.js"></script>
+  <script src="src/mock/main.js"></script>
+</head>
+<body>
+<div id="app">
+  <div class="main">
+    <b-button @click="onClick">测试按钮</b-button>
+    <br> <br>
+    <b-dot-label v-if="msg">{{msg}}</b-dot-label>
+  </div>
+</div>
+<script>
+  var vm = new Vue({
+    el: '#app',
+    data: function () {
+      return {
+        msg: ''
+      }
+    },
+    methods: {
+      onClick: function () {
+        this.$log.print('测试发起请求')
+        axios.get('/demo').then(function (response) {
+          vm.$log.print('测试请求成功', 'success')
+          vm.$log.print(response.data.msg, 'danger')
+          vm.msg = response.data.msg
+        })
+      }
+    }
+  })
+</script>
+</body>
+</html>
