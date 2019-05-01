@@ -9,13 +9,13 @@ const cssmin = require('gulp-cssmin')
 
 // 编译函数
 function convertJs () {
-  return src('./src/components/*.js')
+  return src('./src/js/components/*.js')
     .pipe(babel({
       presets: ['@babel/env']
     }))
     .pipe(uglify())
     .pipe(rename({suffix: '.min'}))
-    .pipe(dest('./src/components'))
+    .pipe(dest('./src/js/components'))
 }
 
 // 打包默认的
