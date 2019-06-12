@@ -18,7 +18,7 @@ function convertJs () {
     .pipe(dest('./src/js/components'))
 }
 
-// 打包默认的
+// 打包默认的styl
 function compile () {
   return src('./src/styles/*.styl')
     .pipe(stylus())
@@ -30,4 +30,4 @@ function compile () {
     .pipe(dest('./src/styles'))
 }
 
-exports.build = series(convertJs, compile)
+exports.build = series(convertJs)

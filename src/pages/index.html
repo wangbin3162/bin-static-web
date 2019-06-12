@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>demo</title>
+  <!--required-->
+  <!--核心库、动画库、请求库-->
+  <script src="../js/lib/vue.min.js"></script>
+  <script src="../js/lib/utils/axios.min.js"></script>
+  <script src="../js/lib/utils/velocity.min.js"></script>
+  <!--必须的自定义组件-->
+  <!--required end-->
+  <!--第三方库和自己编写的插件-->
+  <!--element-ui@2.9.1-->
+  <!--<link rel="stylesheet" href="src/js/lib/element-ui@2.9.1/index.css">-->
+  <!--<script src="src/js/lib/element-ui@2.9.1/index.js"></script>-->
+  <!--bin-ui@1.4.4-->
+  <link rel="stylesheet" href="../js/lib/bin-ui@1.4.4/styles/index.css">
+  <script src="../js/lib/bin-ui@1.4.4/bin-ui.umd.min.js"></script>
+  <!--自定义组件-->
+  <script src="../js/components/dot-label.js"></script>
+  <!--self-->
+  <link rel="stylesheet" href="../styles/index.css">
+  <!--测试模拟请求-->
+  <script src="../js/lib/utils/mock.js"></script>
+  <script src="../mock/main.js"></script>
+</head>
+<body>
+<div id="app">
+  <div class="main">
+    <b-button @click="onClick">测试按钮</b-button>
+    <br> <br>
+    <b-dot-label v-if="msg">{{msg}}</b-dot-label>
+  </div>
+</div>
+<script>
+  var vm = new Vue({
+    el: '#app',
+    data: function () {
+      return {
+        msg: ''
+      }
+    },
+    methods: {
+      onClick: function () {
+        this.$log.print('测试发起请求')
+        axios.get('/demo').then(function (response) {
+          vm.$log.print('测试请求成功', 'success')
+          vm.$log.print(response.data.msg, 'danger')
+          vm.msg = response.data.msg
+        })
+      }
+    }
+  })
+</script>
+</body>
+</html>
