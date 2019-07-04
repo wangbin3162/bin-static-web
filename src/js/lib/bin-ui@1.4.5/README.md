@@ -2,4 +2,4 @@
 
 [参考文档](https://wangbin3162.github.io/bin-ui-doc/#/giud)
 
-当前版本号：1.4.4
+当前版本号：1.4.5
