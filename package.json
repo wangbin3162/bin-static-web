@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "live-server --open=./src/pages/index.html --port=8080 --proxy=/admin:http://localhost:8086/admin/",
+    "serve": "live-server --open=./src/pages/index.html --port=8088 --proxy=/admin:http://localhost:8086/admin/",
     "build": "gulp build"
   },
   "author": "wangbin",
