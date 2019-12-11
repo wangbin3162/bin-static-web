@@ -1,5 +1,5 @@
 ﻿## bin-ui 自定义组件库
 
-[参考文档](https://wangbin3162.github.io/docs/bin-ui/#/giud)
+[参考文档](https://wangbin3162.gitee.io/bin-ui/)
 
-当前版本号：2.3.5
+当前版本号：2.3.8
