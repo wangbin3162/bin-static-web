@@ -24,12 +24,17 @@
   <!--测试模拟请求-->
   <script src="../lib/utils/mock.js"></script>
   <script src="../mock/main.js"></script>
+  <script src="../lib/echarts/echarts.min.js"></script>
+  <script src="../lib/echarts/bin-charts.min.js"></script>
 </head>
 <body>
 <div id="app">
   <div class="main">
     <b-button @click="onClick">测试按钮</b-button>
     <br> <br>
+    <div id="chart1" style="width: 100%;height: 100%;padding-top:15px;position: relative;">
+      <b-charts height="350px" :options="lineChartOption"></b-charts>
+    </div>
     <b-dot-label v-if="msg">{{msg}}</b-dot-label>
 
     <b-table :columns="columns" :data="data"></b-table>
@@ -58,7 +63,8 @@
             title: '地址',
             key: 'address'
           }
-        ], data: [
+        ],
+        data: [
           {
             name: '王小明',
             age: 18,
@@ -89,7 +95,25 @@
             birthday: '23232000000',
             address: '南京市龙眠大道'
           }
-        ]
+        ],
+        lineChartOption: {
+          tooltip: { trigger: 'axis' },
+          title: { text: '默认折线图' },
+          grid: { top: 80, right: 30 },
+          xAxis: {
+            type: 'category',
+            axisTick: {
+              alignWithLabel: true
+            },
+            data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+          },
+          yAxis: { type: 'value' },
+          series: [{
+            type: 'line',
+            name: '数量',
+            data: [220, 315, 213, 432, 566, 143, 567, 356, 1200, 332, 900, 1010]
+          }]
+        }
       }
     },
     methods: {
