@@ -30,6 +30,7 @@
 <body>
 <div id="app">
   <div class="main">
+    <b-ace-editor v-model="jsonStr" lang="json" width="100%" height="300"></b-ace-editor>
     <b-button @click="onClick">测试按钮</b-button>
     <br> <br>
     <div id="chart1" style="width: 100%;height: 100%;padding-top:15px;position: relative;">
@@ -40,11 +41,26 @@
     <b-table :columns="columns" :data="data"></b-table>
   </div>
 </div>
+
 <script>
+  var jsonData = {
+    title: '测试json数据',
+    child: [
+      {
+        title: '子项名称1',
+        desc: '子项描述1'
+      },
+      {
+        title: '子项名称2',
+        desc: '子项描述2'
+      }
+    ]
+  }
   var vm = new Vue({
     el: '#app',
     data: function () {
       return {
+        jsonStr: JSON.stringify(jsonData, null, 2),
         msg: '',
         columns: [
           {
