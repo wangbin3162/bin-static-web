@@ -4,28 +4,23 @@
   <meta charset="UTF-8">
   <title>demo</title>
   <!--required-->
-  <!--核心库、动画库、请求库-->
+  <!--核心库-->
   <script src="../lib/vue.min.js"></script>
   <script src="../lib/utils/axios.min.js"></script>
   <script src="../lib/utils/es6-promise.auto.min.js"></script>
   <!--必须的自定义组件-->
-  <!--required end-->
-  <!--第三方库和自己编写的插件-->
-  <!--element-ui@2.9.1-->
-  <!--<link rel="stylesheet" href="src/js/lib/element-ui@2.9.1/index.css">-->
-  <!--<script src="src/js/lib/element-ui@2.9.1/index.js"></script>-->
   <!--bin-ui-->
   <link rel="stylesheet" href="../lib/bin-ui/styles/index.css">
   <script src="../lib/bin-ui/bin-ui.min.js"></script>
   <!--自定义组件-->
-  <script src="../components/dot-label.min.js"></script>
+  <script src="../components/dist/dot-label.min.js"></script>
   <!--self-->
   <link rel="stylesheet" href="../styles/index.css">
   <!--测试模拟请求-->
-  <script src="../lib/utils/mock.js"></script>
+  <script src="../mock/mock.js"></script>
   <script src="../mock/main.js"></script>
   <script src="../lib/echarts/echarts.min.js"></script>
-  <script src="../lib/echarts/bin-charts.min.js"></script>
+  <script src="../lib/bin-charts/bin-charts.min.js"></script>
 
   <script src="../lib/bin-ace-editor/src-min-noconflict/ace.js"></script>
   <script src="../lib/bin-ace-editor/src-min-noconflict/ext-beautify.js"></script>
@@ -39,7 +34,7 @@
 <div id="app">
   <div class="main">
     <b-button @click="onClick">测试按钮</b-button>
-    <b-dot-label v-if="msg">{{msg}}</b-dot-label>
+    <b-dot-label v-if="msg" type="circle">{{msg}}</b-dot-label>
     <br> <br>
     <div id="chart1" style="width: 100%;height: 100%;padding-top:15px;position: relative;">
       <b-charts height="350px" :options="lineChartOption"></b-charts>
